@@ -2,7 +2,6 @@ var React = require('react');
 var Results = require('../components/Results');
 var githubHelpers = require('../utils/githubHelpers');
 
-
 var ResultsContainer = React.createClass({
   getInitialState: function () {
     return {
@@ -11,7 +10,6 @@ var ResultsContainer = React.createClass({
     }
   },
   componentDidMount: function () {
-    console.log(this.props.location.state.playersInfo);
     githubHelpers.battle(this.props.location.state.playersInfo)
       .then(function (scores) {
         this.setState({
@@ -25,8 +23,8 @@ var ResultsContainer = React.createClass({
       <Results
         isLoading={this.state.isLoading}
         playersInfo={this.props.location.state.playersInfo}
-        scores={this.state.scores}/>
-    );
+        scores={this.state.scores} />
+    )
   }
 });
 
